@@ -20,5 +20,6 @@ for i in $(cat lstxt.ttt); do
         sed -r 's/phylog.+/phylogSTEM/g' |    #custom stemming  phylogenetic, phylogeny, phylogentically, phylogenetics
         sed -r 's/cladog.+/cladistii/g' |     #stemming cladogram, cladograms, cladogenetic
         sed -r 's/cladist.+/cladistSTEM/g' |  #stemming cladistic, cladistically, cladistics
-        sed -r 's/parsimon.+/parsimonSTEM/g'  > "$i.ooo" 
+        sed -r 's/parsimon.+/parsimonSTEM/g' | #struggling to get stopwords working in R, so partial bash removal below
+        sed '/with$\|from$\|than$\|that$\|well$\|more$\|most$\|have$\|this$\|some$\|there$\|their$\|zootaxa$\|magnolia$\|press$/d' > "$i.ooo" 
 	done
