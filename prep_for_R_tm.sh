@@ -21,5 +21,7 @@ for i in $(cat lstxt.ttt); do
         sed -r 's/cladog.+/cladistii/g' |     #stemming cladogram, cladograms, cladogenetic
         sed -r 's/cladist.+/cladistSTEM/g' |  #stemming cladistic, cladistically, cladistics
         sed -r 's/parsimon.+/parsimonSTEM/g' | #struggling to get stopwords working in R, so partial bash removal below
-        sed '/with$\|from$\|than$\|that$\|well$\|more$\|most$\|have$\|this$\|some$\|there$\|their$\|zootaxa$\|magnolia$\|press$/d' > "$i.ooo" 
+        sed '/with$\|from$\|than$\|that$\|well$\|more$\|most$\|have$\|this$\|some$\|there$\|their$\|zootaxa$\|magnolia$\|press$/d' |
+        sed '/words$\|copyright$\|print$\|abstract$\|online$\|introduction$\|accepted$\|published$\|methods$\|issn$\|discussion$\|edition$\|known$\|used$\|found$/d' |
+	sed '/figure$\|however$\|into$\|same$\|except$\|these$\|only$\|which$\|also$\|each$\|other$\|between$\|were$/d' > "$i.ooo"
 	done
