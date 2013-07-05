@@ -23,6 +23,6 @@ for i in $(cat lstxt.ttt); do
         sed -r 's/parsimon.+/parsimonSTEM/g' | #struggling to get stopwords working in R, so partial bash removal below
         sed '/with$\|from$\|than$\|that$\|well$\|more$\|most$\|have$\|this$\|some$\|there$\|their$\|zootaxa$\|magnolia$\|press$/d' |
         sed '/words$\|copyright$\|print$\|abstract$\|online$\|introduction$\|accepted$\|published$\|methods$\|issn$\|discussion$\|edition$\|known$\|used$\|found$/d' |
-	sed '/figure$\|however$\|into$\|same$\|except$\|these$\|only$\|which$\|also$\|each$\|other$\|between$\|were$/d' 
+	sed '/figure$\|however$\|into$\|same$\|except$\|these$\|only$\|which$\|also$\|each$\|other$\|between$\|were$/d' | 
 	sed '/[0-9]/d' > "$i.ooo"
 	done
