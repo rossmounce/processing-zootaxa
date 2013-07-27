@@ -25,5 +25,6 @@ for i in $(cat lstxt.ttt); do
         sed '/with$\|from$\|than$\|that$\|well$\|more$\|most$\|have$\|this$\|some$\|there$\|their$\|zootaxa$\|magnolia$\|press$/d' |
         sed '/words$\|copyright$\|print$\|abstract$\|online$\|introduction$\|accepted$\|published$\|methods$\|issn$\|discussion$\|edition$\|known$\|used$\|found$/d' |
 	sed '/figure$\|however$\|into$\|same$\|except$\|these$\|only$\|which$\|also$\|each$\|other$\|between$\|were$/d' | 
-	sed '/[0-9]/d' > "$i.ooo"
+	sed '/[0-9]/d' | #words containing numbers, then apply Porter stemmer (the last step below)
+	perl stem.pl > "$i.ooo"
 	done
