@@ -11,8 +11,9 @@ ls *.txt > lstxt.ttt
 for i in $(cat lstxt.ttt); do
   echo "word bag for $i"
         tac "$i" |                    #reverse cat each file, then grep for Refs and print only after this
-        egrep "(Literature [cC]ited$|References$|REFERENCES$|Bibliography$|BIBLIOGRAPHY$|LITERATURE CITED$)" -m 1 -A 99999 | 
-        tac | strings |               #removes special characters e.g Copyright symbol and other strangeness
+        strings | 		      #removes annoying illegal characters that have been seen to break the next step!
+        egrep "(Literature [cC]ited$|References$|References [cC]ited$|REFERENCES$|Bibliography$|BIBLIOGRAPHY$|LITERATURE CITED$|References \[not in Zootaxa format\]$|^Reference$|^Literature$|^References \(asterisks)" -m 1 -A 99999 | 
+        tac |                #puts file back into correct order, minus References section (if it ever had one, some dont e.g. erratums)
         tr '[A-Z]' '[a-z]' |          #change to all lowercase
         sed 's/[[:punct:]]/ /g' |     #remove all punctuation
         sed s/' '/\\n/g |             #replace spaces with newlines (each string on separate line)
