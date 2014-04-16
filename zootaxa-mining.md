@@ -8,7 +8,7 @@ Ubuntu Linux 13.10, grep, tr, sed, wget, pdftotext
 
 ## Aim:
 
-We want to automate the process of determining if a figure caption of a scientific paper relates to an image of a phylogenetic tree figure (image). We will start-off approaching this as a binary classification problem; either the figure caption relates to a phylogenetic tree in the corresponding figure image (scored as '1'), or it does not (scored as '0'). This will help identify the figure images for which further processing is applicable, downstream, to attempt to convert (only) phylogenetic tree images back into open, immediately re-usable, machine-readable data. 
+We want to automate the process of determining if a figure caption of a scientific paper relates to a phylogenetic tree figure (image). We will start-off approaching this as a binary classification problem; either the figure caption relates to a phylogenetic tree in the corresponding figure image (scored as '1'), or it does not (scored as '0'). This will help identify the figure images for which further processing is applicable, downstream, to attempt to convert (only) phylogenetic tree images back into open, immediately re-usable, machine-readable data. 
 
 
 ## Method:
