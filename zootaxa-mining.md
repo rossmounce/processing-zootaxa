@@ -19,7 +19,10 @@ Download the table of contents for Zootaxa papers in 2012:
 ```wget http://www.mapress.com/zootaxa/list/list2012.html``` 
 
 Parse out the URLs from this table of contents HTML, of the 450 issues published in 2012:
-```grep -i '2012/....\.html' list2012.html | tr "\"" "\n" | grep '\.html'| sed 's@2012@http://www\.mapress\.com/zootaxa/list/2012@g'  > list-of-450-URLs-for-all-2012-issues.txt```
+
+```
+grep -i '2012/....\.html' list2012.html | tr "\"" "\n" | grep '\.html'| sed 's@2012@http://www\.mapress\.com/zootaxa/list/2012@g'  > list-of-450-URLs-for-all-2012-issues.txt
+```
 
 Download all issue table of contents pages, for 2012:
 ```wget -w 30 -i list-of-450-URLs-for-all-2012-issues.txt```
@@ -70,7 +73,9 @@ Zootaxa 3440: 68 (27 Aug. 2012)
 Anker, A. (2012) “Revision of the western Atlantic members of the Alpheus armillatus H. Milne Edwards, 1837 species complex (Decapoda, Alpheidae), with description of seven new species”. Zootaxa, 3386, 1–109. 
 
 FIX -> Download the preview PDF instead (it's the same, it's a 1-page erratum article):
+```
 wget http://www.mapress.com/zootaxa/2012/f/z03440p068f.pdf
+```
 
 Create a plaintext copy of each unique fulltext article PDF using pdftotext:
 ```
@@ -91,6 +96,7 @@ XXX articles could not be converted by pdftotext into a plaintext copies, those 
 
 
 Possible sources of error and/or incompleteness with the above method:
+
 1. Potential for the website HTML scraping and parsing methods to miss an issue or PDF link somehow if unanticipated irregular or non-standard HTML is used onsite.
 2. Connection problems with server when downloading the PDF files, resulting in missing, incomplete or corrupt PDF files.
 3. If pdftotext cannot reliably create a complete plaintext copy of some PDF files (this has been observed to happen with a very small number of Zootaxa 'version of record' PDFs).	
