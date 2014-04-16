@@ -53,7 +53,7 @@ Having noted these general rules, I must point out that this website structure i
 
 Thus based-upon these assumed rules (above), one can parse the 450 downloaded HTML issue pages for links to fulltext-only article PDFs with the following commands:
 ```
-grep -i '\.pdf' *.html | tr "\"" "\n" | grep '\.pdf' | grep -v 'f\.pdf' | sort -u | sed 's@\.\./\.\./2012@http://www\.mapress\.com/zootaxa/2012@g' > listpdfs.txt
+grep -i '\.pdf' *.html | tr "\"" "\n" | grep '\.pdf' | grep -v 'f\.pdf' | sort -u | sed 's@\.\./\.\./2012@http://www\.mapress\.com/zootaxa/2012@g' > 2012-Zootaxa-Fulltext-Articles.txt
 ```
 
 This method determines that there are 1972 fulltext articles available across all the 450 issues published in Zootaxa in 2012.
