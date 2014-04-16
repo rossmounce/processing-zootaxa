@@ -27,7 +27,9 @@ Download all issue table of contents pages, for 2012:
 N.B. Zootaxa (Magnolia Press) is a hybrid journal. Some articles are freely-available without a subscription-required to access them. But the majority of articles are not freely-available to download, and instead require a personal or institutional subscription to download.
 
 On each issue HTML page the freely-available article PDFs are indicated with this URL structure:
-```http://www.mapress.com/zootaxa/2012/f/zt03165p024.pdf```
+```
+http://www.mapress.com/zootaxa/2012/f/zt03165p024.pdf
+```
 
 Where the '/f/' is the indicator that it is freely available, zt_issue number_p_EndPageNumber_.pdf
 
@@ -41,19 +43,25 @@ The subscription-access-only article PDF URLs  are indicated with this URL struc
 Where '/s/' '/1/' or '/2/' indicate that it is subscription-only.
 
 All 'preview' abstract+references only PDFs have URLs of the form:
-```http://www.mapress.com/zootaxa/2012/f/z03154p039f.pdf```
+```
+http://www.mapress.com/zootaxa/2012/f/z03154p039f.pdf
+```
 
 Where '*f.pdf' indicates that it is a preview PDF, not a fulltext PDF. 
 
 Having noted these general rules, I must point out that this website structure is not perfect in practice. I have personally contacted (via email) the editor of Zootaxa more than once to point out incorrectly specified and dead/broken links to articles, which have subsequently been fixed. The website structure is not guaranteed to be static. This describes how it is as of 16/04/2014.
 
 Thus based-upon these assumed rules (above), one can parse the 450 downloaded HTML issue pages for links to fulltext-only article PDFs with the following commands:
-```grep -i '\.pdf' *.html | tr "\"" "\n" | grep '\.pdf' | grep -v 'f\.pdf' | sort -u | sed 's@\.\./\.\./2012@http://www\.mapress\.com/zootaxa/2012@g' > listpdfs.txt```
+```
+grep -i '\.pdf' *.html | tr "\"" "\n" | grep '\.pdf' | grep -v 'f\.pdf' | sort -u | sed 's@\.\./\.\./2012@http://www\.mapress\.com/zootaxa/2012@g' > listpdfs.txt
+```
 
 This method determines that there are 1972 fulltext articles available across all the 450 issues published in Zootaxa in 2012.
 
 Then proceed to download each unique fulltext article PDF at a responsible download-rate (30-second delay between file downloads) from the parsed list with:
-```wget -w 30 -i 2012-Zootaxa-Fulltext-Articles.txt```
+```
+wget -w 30 -i 2012-Zootaxa-Fulltext-Articles.txt
+```
 
 Create a plaintext copy of each unique fulltext article PDF using pdftotext:
 ```
