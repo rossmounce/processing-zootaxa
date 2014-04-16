@@ -63,6 +63,15 @@ Then proceed to download each unique fulltext article PDF at a responsible downl
 wget -w 30 -i 2012-Zootaxa-Fulltext-Articles.txt
 ```
 
+Broken links: 
+a) 
+Erratum 
+Zootaxa 3440: 68 (27 Aug. 2012)
+Anker, A. (2012) “Revision of the western Atlantic members of the Alpheus armillatus H. Milne Edwards, 1837 species complex (Decapoda, Alpheidae), with description of seven new species”. Zootaxa, 3386, 1–109. 
+
+FIX -> Download the preview PDF instead (its the same, it's a 1-page erratum):
+wget http://www.mapress.com/zootaxa/2012/f/z03440p068f.pdf
+
 Create a plaintext copy of each unique fulltext article PDF using pdftotext:
 ```
 	#!/bin/bash	
