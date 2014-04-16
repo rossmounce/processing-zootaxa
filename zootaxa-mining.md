@@ -4,7 +4,7 @@
 Ross Mounce, University of Bath
 
 ## Operating System and specific software tools used in this article
-Ubuntu Linux 13.10, grep, tr, sed, wget, pdftotext
+Ubuntu Linux 13.10, *grep*, *tr*, *sed*, *wget*, *pdftotext*
 
 ## Aim:
 
@@ -77,7 +77,7 @@ FIX -> Download the preview PDF instead (it's the same, it's a 1-page erratum ar
 wget http://www.mapress.com/zootaxa/2012/f/z03440p068f.pdf
 ```
 
-Create a plaintext copy of each unique fulltext article PDF using pdftotext:
+Create a plaintext copy of each unique fulltext article PDF using *pdftotext*:
 ```
 	#!/bin/bash	
 	for f in *.pdf
@@ -87,7 +87,7 @@ Create a plaintext copy of each unique fulltext article PDF using pdftotext:
 	done 
 ```
 
-XXX articles could not be converted by pdftotext into a plaintext copies, those articles are (by Zootaxa ID):
+XXX articles could not be converted by *pdftotext* into a plaintext copies, those articles are (by Zootaxa ID):
 	XXX1, XXX2, XXX3
 
 
@@ -95,10 +95,10 @@ XXX articles could not be converted by pdftotext into a plaintext copies, those 
 
 
 
-Possible sources of error and/or incompleteness with the above method:
+**Possible sources of error and/or incompleteness with the above method:**
 
 1. Potential for the website HTML scraping and parsing methods to miss an issue or PDF link somehow if unanticipated irregular or non-standard HTML is used onsite.
 2. Connection problems with server when downloading the PDF files, resulting in missing, incomplete or corrupt PDF files.
-3. If pdftotext cannot reliably create a complete plaintext copy of some PDF files (this has been observed to happen with a very small number of Zootaxa 'version of record' PDFs).	
+3. If *pdftotext* cannot reliably create a complete plaintext copy of some PDF files (this has been observed to happen with a very small number of Zootaxa 'version of record' PDFs).	
 
 
