@@ -112,6 +112,24 @@ mv *.txt plaintext/
 cd plaintext/
 ```
 
+## Parsing-out partial figure captions
+
+Perhaps 99.9% of Zootaxa figure captions begin with FIGURE or FIGURES (in all caps). This makes them fairly easy to locate. Figures that do not adhere to this format, or figures printed sideways in the PDF will not be parsed out.
+
+
+```
+egrep -h -A2 'FIGURES? [0-9ABCI]' *.txt > step1.out
+sed ':a;N;$!ba;s/\n/ /g' step1.out > 2012oneline.out
+sed 's/--/\n/g' 2012oneline.out > 2012figs.out
+sed -i 's/Acknowledgements $//g' 2012figs.out
+sed -i 's/Acknowledgments $//g' 2012figs.out
+sed -i 's/ FIGUR/\nFIGUR/g' 2012figs.out
+sed -i 's/[[:punct:]]FIGUR/\nFIGUR/g' 2012figs.out
+# Typical extra bit parsed out with short captions
+#2 · Zootaxa 2740 © 2011 Magnolia Press
+sed -ir 's/.....Zootaxa [0-9]+[0-9] . 2011 Magnolia Press//g' 2011figs.out
+```
+
 
 **Possible sources of error and/or incompleteness with the above method:**
 
