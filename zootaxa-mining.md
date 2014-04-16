@@ -77,6 +77,19 @@ FIX -> Download the preview PDF instead (it's the same, it's a 1-page erratum ar
 wget http://www.mapress.com/zootaxa/2012/f/z03440p068f.pdf
 ```
 
+Check the downloaded PDF files:
+```
+#!/bin/bash
+for f in *.pdf; do
+  echo "checking $f"
+  if pdfinfo "$f" > /dev/null; then
+    : Nothing
+  else
+    echo "$f is broken"
+  fi
+done
+```
+
 Create a plaintext copy of each unique fulltext article PDF using *pdftotext*:
 ```
 	#!/bin/bash	
@@ -87,12 +100,17 @@ Create a plaintext copy of each unique fulltext article PDF using *pdftotext*:
 	done 
 ```
 
-XXX articles could not be converted by *pdftotext* into a plaintext copies, those articles are (by Zootaxa ID):
-	XXX1, XXX2, XXX3
+Check if there are any empty (zero byte sized) plaintext files, indicating an error in the pdftotext conversion:
+```
+find . -type f -name '*.txt' -size 0
+```
 
-
-
-
+Tidy up:
+```
+mkdir plaintext
+mv *.txt plaintext/
+cd plaintext/
+```
 
 
 **Possible sources of error and/or incompleteness with the above method:**
