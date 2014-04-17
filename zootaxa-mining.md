@@ -46,9 +46,7 @@ The subscription-access-only article PDF URLs  are indicated with this URL struc
 Where '/s/' '/1/' or '/2/' indicate that it is subscription-only.
 
 All 'preview' abstract+references only PDFs have URLs of the form:
-```
 http://www.mapress.com/zootaxa/2012/f/z03154p039f.pdf
-```
 
 Where '*f.pdf' indicates that it is a preview PDF, not a fulltext PDF. 
 
