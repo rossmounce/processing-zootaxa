@@ -14,6 +14,6 @@ for i in $(cat pwd.txt); do
   for f in *.pdf
   do
 	echo "converting $f"
-        pdftotext "$f" -htmlmeta "$f.txt" 
+        pdftotext "$f" "${f%.*}.txt" 
 	done
 done
